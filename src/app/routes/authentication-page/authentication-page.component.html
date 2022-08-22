@@ -1,0 +1,54 @@
+<div nz-row class="h-100">
+  <div nz-col nzSpan="12" class="left-bg ">
+    <div
+     nz-row nzJustify="end"
+     nzAlign="middle"
+     class="h-100">
+      <div nz-col nzSpan="20" class="left-card h-75">
+        <div nz-row nzJustify="center" nzAlign="middle">
+          <img [src]="img" alt="logo">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div nz-col [nzSpan]="12" class="right-bg">
+    <div nz-row nzJustify="start" nzAlign="middle" class=" h-100">
+      <!-- authentication block -->
+      <div nz-col nzSpan="20" class="right-card h-75">
+          <div nz-row nzJustify="center">
+            <img [src]="img" alt="image">
+          </div>
+
+          <!-- sign in form -->
+          <div nz-row nzJustify="center" >
+            <div nz-col [nzSpan]="15" >
+              <h4>{{isLoginMode ? 'Sign in' : 'Sign up'}}</h4>
+
+              <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+                <nz-form-item>
+                  <nz-form-control nzErrorTip="Please input your Email!">
+                    <nz-input-group>
+                      <input type="email" formControlName="email" id="email" nz-input placeholder="Email" nzRequired />
+                    </nz-input-group>
+                  </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                  <nz-form-control nzErrorTip="Please input your Password!">
+                    <nz-input-group >
+                      <input type="password" formControlName="password" nz-input placeholder="Password"  nzRequired/>
+                    </nz-input-group>
+                  </nz-form-control>
+                </nz-form-item>
+
+                <button  nz-button [nzType]="'primary'" [disabled]="!authForm.valid">{{isLoginMode ? 'Login' : 'sign up'}}</button> |
+                <button nz-button [nzType]="'primary'" (click)="onSwitchMode()" type="button">{{isLoginMode ? 'Switch to sign up mode': 'Switch to login mode'}}</button>
+
+              </form>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

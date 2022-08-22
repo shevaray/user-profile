@@ -1,0 +1,47 @@
+<div nz-row [nzJustify]="'center'">
+  <div nz-col nzXs="23" nzSm="23" nzMd="14" nzLg="14" nzXl="14">
+    <nz-table
+      [nzData]="users"
+      [nzShowPagination]="false"
+			[nzFooter]="pagination"
+    >
+      <ng-template #pagination>
+        <div class="text-right">
+          <nz-pagination
+            [nzPageIndex]="current_page"
+            [nzItemRender]="renderItemTemplate"
+            [nzShowTotal]="rangeTemplate"
+            [nzPageSize]="pageSize"
+            [nzTotal]="total"
+          ></nz-pagination>
+          <ng-template #renderItemTemplate let-type let-page="page">
+            <ng-container [ngSwitch]="type">
+              <a *ngSwitchCase="'page'" (click)="next(page)">{{ page }}</a>
+            </ng-container>
+          </ng-template>
+          <ng-template #rangeTemplate let-total>
+            {{ from }}-{{ to }} of {{ total }} items
+          </ng-template>
+        </div>
+      </ng-template>
+
+      <thead>
+        <tr>
+          <th scope="col">User</th>
+          <th scope="col">Email</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>
+            <img src="{{user.avatar}}" alt="">
+            {{user.first_name}} {{user.last_name}}
+          </td>
+
+          <td>{{user.email}}</td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>

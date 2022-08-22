@@ -1,0 +1,48 @@
+.site-body{
+  background-color: #eeefef !important;
+  min-height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: fixed;
+  object-fit: fill;
+  justify-content: center;
+  z-index: 10;
+  align-items: center;
+  background-color: #ffffff !important;
+  box-shadow: 0px 4px 10px rgba(79, 79, 79, 0.07);
+  padding: 10px;
+
+  .navbar-brand {
+    color: #1875f0;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+}
+
+.nav-item a:hover {
+  color: #1875f0 !important;
+}
+.nav-link-active {
+  color: #1875f0 !important;
+}
+
+.site-contents{
+  padding: 100px 0 50px 0 ;
+}
+
+@media screen and (min-width:992px){
+  .navbar-collapse{
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
